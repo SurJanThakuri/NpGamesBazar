@@ -22,6 +22,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  googleId: {
+    type: String,
+    unique: true, // Ensures no two users can have the same Google ID
+  },
   role: {
     type: String,
     enum: ['user', 'admin'],
@@ -69,4 +73,5 @@ userSchema.methods.generateRefreshToken = function(){
   })
 }
 
-export const User = mongoose.model('User', userSchema);
+// Prevent model overwrite
+export const User = mongoose.models.User || mongoose.model('User', userSchema);

@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import Dummy from './screens/Dummy'
 import Dashboard from './screens/Dashboard'
+import Auth from './screens/Auth'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <h1>Hello</h1>
       <Dashboard />
+      <Auth />
     </>
   )
 }
